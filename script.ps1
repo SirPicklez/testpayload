@@ -4,7 +4,7 @@ $flagFile = "$tempDir\script_hidden.flag"
 # If flag file doesn't exist, relaunch hidden
 if (-not (Test-Path $flagFile)) {
     New-Item -ItemType File -Path $flagFile -Force | Out-Null
-    Start-Process -FilePath "powershell" -WindowStyle Hidden -ArgumentList "-ExecutionPolicy Bypass -File -WindowStyle Hidden`"$($MyInvocation.MyCommand.Path)`"" -WindowStyle Hidden
+    Start-Process -FilePath "powershell" -ArgumentList "-ExecutionPolicy Bypass -WindowStyle Hidden -File `"$($MyInvocation.MyCommand.Path)`"" -WindowStyle Hidden
     exit
 }
 
